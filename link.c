@@ -2,25 +2,25 @@
 #include <stdlib.h>
 
 struct node{
-	int data;
-	struct node* next;
+    int data;
+    struct node* next;
 };
 
 void builder(struct node* n, int init){
-		 n->data = init;
-		 n->next = NULL;
+	 n->data = init;
+	 n->next = NULL;
 }	
 
 struct node* list_builder(int val){
 	struct node* m = malloc(sizeof(struct node));
-    builder(m, val); 
+        builder(m, val); 
 	return m;
 }
 
 void add(struct node* n, int val){
-	while(n->next != NULL){
-		n = n->next;
-	}
+   while(n->next != NULL){
+	 n = n->next;
+   }
    struct node* m = list_builder(val);
    n->next = m;
 }
@@ -44,7 +44,7 @@ int erase(struct node* pt, int nod){
     return 0;
 }
 int write(struct node* ptr, int pos, int val){
-	  for(int i=0; pos > i; ++i){
+    for(int i=0; pos > i; ++i){
         ptr = ptr->next;
     }
 	ptr->data = val;
@@ -52,7 +52,7 @@ int write(struct node* ptr, int pos, int val){
 }
 
 int read_all(struct node* ptr){
-	for(int i=0; ptr->next != NULL; ++i){
+   for(int i=0; ptr->next != NULL; ++i){
 	 ptr = ptr->next;
    	 printf("%d\n", ptr->data);
    }
